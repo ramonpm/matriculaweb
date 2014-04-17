@@ -1,0 +1,13 @@
+<% title "Importar Aluno" %>
+
+<%= form_tag import_path, {:multipart=>true, :method => :post} do %>  
+
+  <p>
+      <%= label_tag :upload, 'Selecione o arquivo que contém os dados dos alunos' %><br />
+      <%= file_field_tag :upload %>
+  </p>
+  <p><%= submit_tag 'Importar' %></p>
+
+<%- end -%>
+
+<%= link_to 'Voltar', alunos_path %>

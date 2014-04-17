@@ -1,0 +1,17 @@
+<% title "Exclusões por Turma" %>
+
+<table class="table table-striped">
+	<tr>
+		<th>Turma</th>
+		<th>Disciplina</th>
+		<th>Curso</th>
+	</tr>
+
+	<% @turmas.each do |t| %>
+	  <tr>
+	    <td><%= link_to t.dias_horarios, :controller => "relatorios", :action => "exclusoes", :turma_id => t.id, :format => "pdf" %></td>
+	    <td><%= t.disciplina.nome %></td>
+	    <td><%= t.disciplina.curso.nome %></td>
+	  </tr>
+	<% end %>
+</table>

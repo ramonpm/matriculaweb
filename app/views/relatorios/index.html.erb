@@ -1,0 +1,19 @@
+<% title "Todas as solicitações" %>
+
+<p>
+    <%= link_to "Versão em PDF", relatorios_path(:format => 'pdf') %>
+</p>
+
+<table class="table table-striped">
+  <tr>
+    <th>Número</th>
+    <th>Usuário</th>
+  </tr>
+
+<% @solicitacaos.each do |solicitacao| %>
+  <tr>
+    <td><%= link_to solicitacao.id, solicitacao %></td>
+    <td><%= solicitacao.usuario.nome %></td>
+  </tr>
+<% end %>
+</table>

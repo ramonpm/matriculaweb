@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  matricula: 
+  nome: MyString
+  curso: MyString
+  matriz_curso: MyString
+  p: 1.5
+  ti: 1.5
+  ta: 1.5
+  qr: 1.5
+  mra: 1.5
+  mga: 1.5
+  mgc: 1.5
+
+two:
+  matricula: 
+  nome: MyString
+  curso: MyString
+  matriz_curso: MyString
+  p: 1.5
+  ti: 1.5
+  ta: 1.5
+  qr: 1.5
+  mra: 1.5
+  mga: 1.5
+  mgc: 1.5

@@ -1,0 +1,40 @@
+<% title "Alunos" %>
+
+<table class="table table-striped">
+  <tr>
+    <th>Matricula</th>
+    <th>Nome</th>
+    <th>Curso</th>
+    <th>Matriz curso</th>
+    <th>P</th>
+    <th>Ti</th>
+    <th>Ta</th>
+    <th>Qr</th>
+    <th>Mra</th>
+    <th>Mga</th>
+    <th>Mgc</th>
+  </tr>
+
+<% @alunos.each do |aluno| %>
+  <tr>
+    <td><%= aluno.matricula %></td>
+    <td><%= aluno.nome %></td>
+    <td><%= aluno.curso %></td>
+    <td><%= aluno.matriz_curso %></td>
+    <td><%= aluno.p %></td>
+    <td><%= aluno.ti %></td>
+    <td><%= aluno.ta %></td>
+    <td><%= aluno.qr %></td>
+    <td><%= aluno.mra %></td>
+    <td><%= aluno.mga %></td>
+    <td><%= aluno.mgc %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<p>
+    <%= link_to 'Importar Alunos', :controller => "alunos", :action => "import_page" %>
+</p>
+
+<%= link_to 'Novo Aluno', new_aluno_path %>

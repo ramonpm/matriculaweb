@@ -1,0 +1,17 @@
+<% title "Inclusões por Turma" %>
+
+<table class="table table-striped">
+	<tr>
+		<th>Turma</th>
+		<th>Disciplina</th>
+		<th>Curso</th>		
+	</tr>
+
+	<% @turmas_solicitacaos.each do |t| %>
+	  <tr>
+	    <td><%= link_to t.turma.dias_horarios, :controller => "relatorios", :action => "inclusoes", :turma_id => t.turma_id, :format => "pdf" %></td>
+	    <td><%= t.disciplina.nome %></td>
+	    <td><%= t.disciplina.curso.nome %></td>
+	  </tr>
+	<% end %>
+</table>

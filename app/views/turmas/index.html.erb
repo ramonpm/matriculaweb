@@ -1,0 +1,23 @@
+<% title "Turmas" %>
+
+<table class="table table-striped">
+  <tr>
+    <th>Dias horarios</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @turmas.each do |turma| %>
+  <tr>
+    <td><%= turma.dias_horarios %></td>
+    <td><%= link_to 'Mostrar', turma %></td>
+    <td><%= link_to 'Editar', edit_turma_path(turma) %></td>
+    <td><%= link_to 'Apagar', turma, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nova Turma', new_turma_path %>

@@ -1,0 +1,31 @@
+<% title "Usuários" %>
+
+<table class="table table-striped">
+  <tr>
+    <th>Nome</th>
+    <th>Curso</th>
+    <th>Matricula</th>
+    <th>Email</th>
+    <th>Administrador</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @usuarios.each do |usuario| %>
+  <tr>
+    <td><%= usuario.nome %></td>
+    <td><%= usuario.curso.nome %></td>
+    <td><%= usuario.matricula %></td>
+    <td><%= usuario.email %></td>
+    <td><%= usuario.administrador %></td>
+    <td><%= link_to 'Mostrar', usuario %></td>
+    <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
+    <td><%= link_to 'Apagar', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Novo Usuario', new_usuario_path %>

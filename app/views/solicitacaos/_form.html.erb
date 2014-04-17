@@ -1,0 +1,20 @@
+<%= simple_nested_form_for(@solicitacao, :html => {:class => 'form-inline' }) do |f| %>
+
+	
+	<table id="turmas_solicitacaos" class="table table-bordered">
+		<th> Ação </th>
+		<th> Disciplina </th>
+		<th> Turma </th>
+		<th> Remover </th>
+		<%= f.simple_fields_for :turmas_solicitacaos, :wrapper => false %>
+  	</table>
+  	<p>
+  		<%= f.link_to_add :turmas_solicitacaos, :data => { :target => "#turmas_solicitacaos" }  do %>
+  			<i class="icon-plus"> </i> Adicionar Disciplina
+  		<% end %>
+  	</p>
+	<%= f.input :observacao, as: :text, input_html: {style: "height: 100px; width: 390px;"} %>
+	
+	<%= f.button :submit, "Salvar" %>
+<% end %>
+

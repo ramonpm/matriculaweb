@@ -1,0 +1,28 @@
+<p>
+  <b>Nome:</b>
+  <%= @usuario.nome %>
+</p>
+
+<p>
+  <b>Curso:</b>
+  <%= @usuario.curso.nome %>
+</p>
+
+<p>
+  <b>Matricula:</b>
+  <%= @usuario.matricula %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @usuario.email %>
+</p>
+
+<p>
+  <b>Administrador:</b>
+  <%= @usuario.administrador %>
+</p>
+
+
+<%= link_to 'Editar', edit_usuario_path(@usuario) %> |
+<%= link_to 'Voltar', usuarios_path %>

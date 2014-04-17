@@ -1,0 +1,2 @@
+INCLUIR = 0
+EXCLUIR = 1

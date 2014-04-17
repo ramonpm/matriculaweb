@@ -1,0 +1,31 @@
+<h2>Registrar</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :nome %>
+  <%= f.text_field :nome, :autofocus => true %></div>
+
+  <div>
+    <%= f.label :curso_id %>
+    <%= f.collection_select :curso_id, Curso.all(:order => :nome), :id, :nome, {:include_blank => 'Escolha um Curso'} %>
+  </div>
+
+  <div>
+    <%= f.label :matricula %>
+    <%= f.collection_select :matricula, Aluno.all(:order => :matricula), :matricula, :matricula, {:include_blank => 'Selecione o N. de matrícula'} %>
+  </div>
+
+  <div><%= f.label :email %>
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label :password %>
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.submit "Registrar" %></div>
+<% end %>
+
+<%= render "devise/shared/links" %>

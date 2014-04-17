@@ -1,0 +1,15 @@
+
+
+<p>
+  <b>Dias horarios:</b>
+  <%= @turma.dias_horarios %>
+</p>
+
+<p>
+  <b>Disciplina:</b>
+  <%= @turma.disciplina_id %>
+</p>
+
+
+<%= link_to 'Editar', edit_turma_path(@turma) %> |
+<%= link_to 'Voltar', turmas_path %>

@@ -1,0 +1,42 @@
+<% title "Solicitações" %>
+
+<table class="table table-striped">
+  <tr>
+    <th>Número</th>
+    <th>Resumo</th>
+    <th>Editar</th>
+    <th>Excluir</th>
+  </tr>
+
+<% @solicitacaos.each do |solicitacao| %>
+  <% turmas_solicitacaos = solicitacao.turmas_solicitacaos %>
+  <% @resumo = "" %>
+  <% turmas_solicitacaos.each do |t| %>
+  <% @resumo += " | " %>
+  <% @resumo += (t.acao == 0 ? "Incluir " : "Excluir ") + " - " + t.disciplina.nome  %>
+  <% end %>
+  <tr>
+    <td>
+      <%= link_to(solicitacao) do %>
+        <%= solicitacao.id %>
+        <i class="icon-eye-open"></i>
+      <% end %>
+    </td>
+    <td><%= truncate(@resumo, :length => 100) %></td>
+    <td>
+      <%= link_to(edit_solicitacao_path(solicitacao)) do %>
+        <i class="icon-pencil"></i>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to(solicitacao, :confirm => 'Deseja remover essa solicitação?', :method => :delete) do %>
+        <i class="icon-trash"></i>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nova Solicitacao', new_solicitacao_path %>

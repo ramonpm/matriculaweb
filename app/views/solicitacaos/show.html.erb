@@ -1,0 +1,64 @@
+<% title "Ajuste de Matrícula" %>
+
+<p>
+  Imprima esta solicitação no link a seguir e leve o documento assinado para a secretaria da escola.
+  	<div class="right">
+		<%= button_to "Imprimir Solicitação", :controller => "solicitacaos", :action => 'imprimir', :id => @solicitacao.id, :format => 'pdf' %>
+	</div>
+</p>
+
+<p>
+  <b>Número:</b>
+  <%= @solicitacao.id %>
+</p>
+
+<p>
+  <b>Aluno:</b>
+  <%= @solicitacao.usuario.nome %>
+</p>
+
+<p>
+  <b>Curso:</b>
+  <%= @solicitacao.usuario.curso.nome %>
+</p>
+
+<p>
+  <b>Matrícula:</b>
+  <%= @solicitacao.usuario.matricula %>
+</p>
+
+<p>
+  <b>E-mail:</b>
+  <%= @solicitacao.usuario.email %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @solicitacao.created_at.strftime("%d/%m/%Y, %I:%M%p") %>
+</p>
+
+<table class="table table-bordered">
+	<th> Ação </th>
+	<th> Turma </th>
+	<th> Dias/Horário </th>
+	<th> Curso </th>
+	<% turmas_solicitacaos = @solicitacao.turmas_solicitacaos %>
+	<% turmas_solicitacaos.each do |t| %>
+		<tr class="fields">
+			<td><%= t.acao == 0 ? "Incluir " : "Excluir " %></td>
+			<td><%= t.disciplina.nome  %></td>
+			<td><%= t.turma.dias_horarios %></td>
+			<td><%= t.disciplina.curso.nome  %></td>
+		</tr>
+	<% end %>
+</table>
+
+<p>
+  <b>Observação:</b>
+  <%= @solicitacao.observacao %>
+</p>
+
+<%= link_to 'Editar', edit_solicitacao_path(@solicitacao) %> |
+<%= link_to 'Voltar', solicitacaos_path %> |
+<%= link_to "Apagar", @solicitacao, :confirm => 'Are you sure?', :method => :delete %>
+

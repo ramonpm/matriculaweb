@@ -1,0 +1,10 @@
+<tr class="fields">
+    <td><%= f.input :acao, label: false, collection: [ ["Incluir", 0], ["Excluir", 1]], prompt: "Selecione uma ação" %></td>
+    <td>
+    	<%= f.association :disciplina, label: false, prompt: "Selecione uma disciplina", collection: @disciplinas, :label_method => lambda { |disciplina| "#{disciplina.nome} - #{disciplina.curso.nome}" }, input_html: { style: "width: 400px;" }  %>
+    </td>
+    <td><%= f.association :turma, label: false, prompt: "Selecione uma turma", collection: @turmas, :label_method => lambda { |turma| "#{turma.dias_horarios}" }, input_html: { style: "width: 200px;" } %></td>
+    <td><%= f.link_to_remove  do %>
+    		<center><i class="icon-trash"></i></center>
+    	<% end %></td>
+</tr>
